@@ -7,8 +7,8 @@ import collections
 from tqdm import tqdm
 import numpy as np
 
-from keyword_extractor import KeywordExtractor
-from utils.load_data_utils import kw_tokenize
+from .keyword_extractor import KeywordExtractor
+from .utils.load_data_utils import kw_tokenize
 
 
 # ==================================================================

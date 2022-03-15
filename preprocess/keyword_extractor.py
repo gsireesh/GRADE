@@ -1,4 +1,4 @@
-from utils.load_data_utils import *
+from .utils.load_data_utils import *
 
 class KeywordExtractor():
     def __init__(self, candi_keywords=None, idf_dict=None):

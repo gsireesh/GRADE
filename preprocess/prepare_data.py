@@ -42,8 +42,8 @@ class PreprocessTool():
         print('-' * len(output_info))
 
         print(os.getcwd())
-        glove_input_file = './GRADE/tools/numberbatch-en-19.08.txt'
-        word2vec_output_file = './GRADE/tools/numberbatch-en-19.08.word2vec.txt'
+        glove_input_file = '../../../../GRADE/tools/numberbatch-en-19.08.txt'
+        word2vec_output_file = '../../../../GRADE/tools/numberbatch-en-19.08.word2vec.txt'
         (count, dimensions) = glove2word2vec(glove_input_file, word2vec_output_file)
         print(count, '\n', dimensions) 
 
@@ -185,13 +185,13 @@ class PreprocessTool():
 
             if mode == 'train':
                 train_original_rep_embed_dict = original_rep_embed_dict
-                save_file = 'GRADE/tools/train_original_rep_embed.txt'
+                save_file = '../../GRADE/tools/train_original_rep_embed.txt'
             elif mode == 'validation':
                 validation_original_rep_embed_dict = original_rep_embed_dict
-                save_file = 'GRADE/tools/validation_original_rep_embed.txt'
+                save_file = '../../GRADE/tools/validation_original_rep_embed.txt'
             elif mode == 'test':
                 test_original_rep_embed_dict = original_rep_embed_dict
-                save_file = 'GRADE/tools/test_original_rep_embed.txt'
+                save_file = '../../GRADE/tools/test_original_rep_embed.txt'
 
             PreprocessTool._save_rep_embed(original_rep_embed_dict, save_file)
             PreprocessTool.print_save_file(save_file)
@@ -205,9 +205,9 @@ class PreprocessTool():
         print('-' * len(output_info))
 
         output_root = '../data/DailyDialog_tmp' 
-        train_load_file = 'GRADE/tools/train_original_rep_embed.txt'
-        validation_load_file = 'GRADE/tools/validation_original_rep_embed.txt'
-        test_load_file = 'GRADE/tools/test_original_rep_embed.txt'
+        train_load_file = '../../GRADE/tools/train_original_rep_embed.txt'
+        validation_load_file = '../../GRADE/tools/validation_original_rep_embed.txt'
+        test_load_file = '../../GRADE/tools/test_original_rep_embed.txt'
 
         if not os.path.exists(train_load_file):
             train_original_rep_embed_dict, validation_original_rep_embed_dict, test_original_rep_embed_dict = \
@@ -457,7 +457,7 @@ class PreprocessTool():
     @staticmethod
     def load_cpnet():
         print("loading cpnet....")
-        cpnet = nx.read_gpickle('GRADE/tools/cpnet.graph')
+        cpnet = nx.read_gpickle('../../GRADE/tools/cpnet.graph')
         print("Done")
 
         cpnet_simple = nx.MultiDiGraph()
@@ -474,7 +474,7 @@ class PreprocessTool():
     def load_resources():
         concept2id = {}
         id2concept = {}
-        with open("GRADE/tools/concept.txt", "r", encoding="utf8") as f:
+        with open("../../GRADE/tools/concept.txt", "r", encoding="utf8") as f:
             for w in f.readlines():
                 concept2id[w.strip()] = len(concept2id)
                 id2concept[len(id2concept)] = w.strip()
@@ -482,7 +482,7 @@ class PreprocessTool():
         print("concept2id done")
         id2relation = {}
         relation2id = {}
-        with open("GRADE/tools/relation.txt", "r", encoding="utf8") as f:
+        with open("../../GRADE/tools/relation.txt", "r", encoding="utf8") as f:
             for w in f.readlines():
                 id2relation[len(id2relation)] = w.strip()
                 relation2id[w.strip()] = len(relation2id)
@@ -571,7 +571,7 @@ class PreprocessTool():
 
         o_data_name = 'DailyDialog_tmp'
         data_name = 'DailyDialog'
-        word2vec_model_path = 'GRADE/tools/numberbatch-en-19.08.word2vec.txt'
+        word2vec_model_path = '../../GRADE/tools/numberbatch-en-19.08.word2vec.txt'
         word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path)
         concept2id, id2concept, relation2id, id2relation = PreprocessTool.load_resources()
         cpnet_simple = PreprocessTool.load_cpnet()
@@ -643,7 +643,7 @@ class PreprocessTool():
 
         o_data_name = 'DailyDialog_tmp'
         data_name = 'DailyDialog'
-        word2vec_model_path = 'GRADE/tools/numberbatch-en-19.08.word2vec.txt'
+        word2vec_model_path = '../../GRADE/tools/numberbatch-en-19.08.word2vec.txt'
         word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path)
         concept2id, id2concept, relation2id, id2relation = PreprocessTool.load_resources()
         cpnet_simple = PreprocessTool.load_cpnet()
@@ -726,7 +726,7 @@ class PreprocessTool():
 
         tmp_data_name = 'DailyDialog_tmp'
         data_name = 'DailyDialog'
-        word2vec_model_path = 'GRADE/tools/numberbatch-en-19.08.word2vec.txt'
+        word2vec_model_path = '../../GRADE/tools/numberbatch-en-19.08.word2vec.txt'
         word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path)
         print("Finish Loading Embedding!")
 
@@ -796,7 +796,7 @@ class PreprocessTool():
         
         tmp_data_name = 'DailyDialog_tmp'
         data_name = 'DailyDialog'
-        word2vec_model_path = 'GRADE/tools/numberbatch-en-19.08.word2vec.txt'
+        word2vec_model_path = '../../GRADE/tools/numberbatch-en-19.08.word2vec.txt'
         word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path)
         print("Finish Loading Embedding!")
 
